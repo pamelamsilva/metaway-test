@@ -1,0 +1,160 @@
+$primary-color  : #0A2342;
+$secondary-color: #fff;
+$tertiary-color : #627791;
+
+html {
+    margin          : 0 auto;
+    scroll-behavior : smooth;
+    width           : 100%;
+    overflow-x      : hidden;
+    background-color: #fff;
+
+    *:not(svg) {
+        box-sizing : border-box;
+        color      : $primary-color;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        margin          : 0;
+        overflow        : hidden;
+        background-color: #fff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    button {
+        background-color: transparent;
+        border          : none;
+        box-shadow      : none;
+        margin          : 0;
+        padding         : 0;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    blockquote {
+        padding: 0;
+        margin : 0;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        border-radius: 0;
+    }
+
+    input:-internal-autofill-selected {
+        background-color: transparent !important;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    dl {
+        margin: 0;
+    }
+
+    dt,
+    dd {
+        line-height: inherit;
+    }
+
+    dt {
+        font-weight: inherit;
+    }
+
+    dd {
+        margin-bottom: 0;
+    }
+
+    cite {
+        font-style: normal;
+    }
+
+    form {
+        margin-bottom: 0;
+    }
+
+    blockquote {
+        padding-left: 0;
+        border-left : 0;
+    }
+
+    address {
+        margin-top   : 0;
+        margin-bottom: 0;
+    }
+
+    figure {
+        margin-bottom: 0;
+    }
+
+    a,
+    p a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+input {
+    display         : block;
+    background-color: transparent;
+    padding         : 13px 20px;
+    font-size       : 16px;
+    font-weight     : 500;
+    width           : 100%;
+    border          : 2px solid $primary-color;
+    border-radius   : 5px !important;
+
+    &::placeholder {
+        font-size  : 16px;
+        font-weight: 500;
+    }
+}
+
+.common-button {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    text-transform  : uppercase;
+    background-color: $primary-color;
+    text-align      : center;
+    width           : 100%;
+    font-size       : 18px;
+    font-weight     : 700;
+    color           : $secondary-color;
+    border-radius   : 5px;
+    padding         : 20px 36px;
+    transition      : all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: lighten($primary-color, 5%);
+    }
+
+    p {
+        color: $secondary-color;
+    }
+}

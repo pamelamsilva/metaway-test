@@ -1,0 +1,60 @@
+.general {
+    padding   : 0 10vw 150px;
+    text-align: left;
+}
+
+.select-container {
+    margin-top   : 40px;
+    text-align   : left;
+    margin-bottom: 15px;
+
+    select {
+        padding         : 13px 20px;
+        font-size       : 16px;
+        font-weight     : 500;
+        width           : 100%;
+        display         : block;
+        background-color: $secondary-color;
+        border          : 1px solid $primary-color;
+        border-radius   : 5px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.radio-buttons {
+    &>div {
+        display    : flex;
+        align-items: center;
+        width      : fit-content;
+    }
+
+}
+
+.checkbox-container {
+    display   : flex;
+    text-align: left;
+
+    input {
+        width : 20px;
+        cursor: pointer;
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.grid {
+    display              : grid;
+    grid-template-columns: 1fr 1fr;
+    gap                  : 15px;
+    margin-bottom        : 15px;
+}
+
+.common-button {
+    cursor    : pointer;
+    margin-top: 15px;
+}

@@ -1,0 +1,113 @@
+.page-home {
+    min-height    : 100vh;
+    padding-bottom: 108px;
+    position      : relative;
+
+    .search {
+        padding: 40px 10vw 0;
+        display: flex;
+
+        input {
+            border-radius: 5px 0 0 5px !important;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .button {
+            background-color: $primary-color;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+            padding         : 5px 20px;
+            cursor          : pointer;
+            border-radius   : 0 5px 5px 0;
+            transition      : all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: lighten($primary-color, 5%);
+            }
+
+            svg {
+                width : 20px;
+                height: auto;
+            }
+        }
+    }
+
+    .contact-title {
+        padding    : 40px 10vw 0;
+        font-size  : 24px;
+        font-weight: 500;
+        text-align : left;
+    }
+
+    .contacts {
+        display: block;
+        padding: 0 10vw 60px;
+
+        .contact {
+            display              : grid;
+            align-items          : center;
+            grid-template-columns: 50px 70px 1fr 1fr;
+            border-bottom        : 1px solid rgba($tertiary-color, 0.5);
+            padding              : 12px 0;
+
+            .fav {
+                cursor: pointer;
+
+                svg {
+                    width : 20px;
+                    height: auto;
+                }
+            }
+
+            .picture {
+                border-radius: 50%;
+                width        : 50px;
+                height       : 50px;
+                overflow     : hidden;
+
+                img {
+                    width     : 100%;
+                    height    : 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .nome {
+                text-align: left;
+            }
+
+            .actions {
+                display        : flex;
+                align-items    : center;
+                justify-content: flex-end;
+                gap            : 4px;
+
+                svg {
+                    width : 20px;
+                    height: auto;
+                    cursor: pointer;
+                }
+
+                .edit {
+                    width: 17px;
+                }
+            }
+        }
+    }
+
+    .add-contact {
+        padding: 0 10vw 80px;
+
+        .common-button {
+            margin-left: auto;
+            width      : fit-content;
+            font-size  : 14px;
+            cursor     : pointer;
+            padding    : 12px 36px;
+        }
+    }
+}
