@@ -7,6 +7,10 @@
         padding: 40px 10vw 0;
         display: flex;
 
+        @media screen and (max-width: 990px) {
+            padding: 30px 20px 0;
+        }
+
         input {
             border-radius: 5px 0 0 5px !important;
 
@@ -41,18 +45,39 @@
         font-size  : 24px;
         font-weight: 500;
         text-align : left;
+
+        @media screen and (max-width: 990px) {
+            padding: 30px 20px 0;
+        }
     }
 
     .contacts {
         display: block;
         padding: 0 10vw 60px;
 
+        @media screen and (max-width: 990px) {
+            padding: 0 20px 40px;
+        }
+
         .contact {
             display              : grid;
             align-items          : center;
-            grid-template-columns: 50px 70px 1fr 1fr;
+            grid-template-columns: 50px 70px 1fr 1fr 1fr;
             border-bottom        : 1px solid rgba($tertiary-color, 0.5);
             padding              : 12px 0;
+            gap                  : 15px;
+
+            @media screen and (max-width: 800px) {
+                grid-template-columns: 20px 40px 1fr 1fr 1fr;
+                font-size            : 12px;
+            }
+
+            @media screen and (max-width: 550px) {
+                grid-template-columns: 1fr;
+                text-align           : left;
+                position             : relative;
+                gap                  : 5px;
+            }
 
             .fav {
                 cursor: pointer;
@@ -68,6 +93,11 @@
                 width        : 50px;
                 height       : 50px;
                 overflow     : hidden;
+
+                @media screen and (max-width: 800px) {
+                    width : 40px;
+                    height: 40px;
+                }
 
                 img {
                     width     : 100%;
@@ -86,6 +116,13 @@
                 justify-content: flex-end;
                 gap            : 4px;
 
+                @media screen and (max-width: 550px) {
+                    position: absolute;
+                    top     : 20px;
+                    right   : 0;
+                }
+
+
                 svg {
                     width : 20px;
                     height: auto;
@@ -101,6 +138,10 @@
 
     .add-contact {
         padding: 0 10vw 80px;
+
+        @media screen and (max-width: 990px) {
+            padding: 0 20px 60px;
+        }
 
         .common-button {
             margin-left: auto;

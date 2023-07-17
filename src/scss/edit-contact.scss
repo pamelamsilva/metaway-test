@@ -1,0 +1,72 @@
+.background {
+    position        : fixed;
+    height          : 100%;
+    width           : 100%;
+    background-color: rgba(#000, 0.5);
+    top             : 0;
+
+    .page-edict-contact {
+        position  : fixed;
+        top       : 50%;
+        left      : 50%;
+        transform : translate(-50%, -50%);
+        background: #fff;
+        padding   : 20px;
+        border    : 1px solid #ccc;
+        text-align: left;
+        min-width : 400px;
+
+        @media screen and (max-width: 430px) {
+            min-width: 300px;
+        }
+
+        .radio-buttons {
+            &>div {
+                display    : flex;
+                align-items: center;
+                width      : fit-content;
+            }
+
+        }
+
+        .checkbox-container {
+            display   : flex;
+            text-align: left;
+
+            input {
+                width : 20px;
+                cursor: pointer;
+            }
+
+            label {
+                cursor: pointer;
+            }
+        }
+
+        .grid {
+            display              : grid;
+            grid-template-columns: 1fr 1fr;
+            gap                  : 15px;
+            margin-bottom        : 15px;
+
+            @media screen and (max-width: 430px) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .common-button {
+            cursor    : pointer;
+            margin-top: 15px;
+        }
+
+        .close {
+            p {
+                font-size  : 18px;
+                color      : #000;
+                margin-left: auto;
+                width      : fit-content;
+                cursor     : pointer;
+            }
+        }
+    }
+}

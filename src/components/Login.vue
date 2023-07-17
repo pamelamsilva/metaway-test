@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { api } from "../services/api.js";
 import { storeToken } from "../services/storage.js";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { useRouter } from "vue-router";
@@ -36,13 +36,7 @@ function clickSend() {
                 });
             }
         });
-
-    // TODO: lógica para o checkbox de lembrar
 }
-
-onMounted(() => {
-    // greet();
-});
 </script>
 
 <template>

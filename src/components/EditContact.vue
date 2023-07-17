@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
-import { vMaska } from "maska";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { api } from "../services/api.js";
 import { getToken } from "../services/storage.js";
-import { ref, onMounted } from "vue";
-import { toast } from "vue3-toastify";
-import "vue3-toastify/dist/index.css";
 
 const router = useRouter();
-const pessoa = ref("");
-const numero = ref("");
-const tipoNumero = ref("Celular");
-const emailInput = ref("");
-const checked = ref(false);
-let pessoas: any = ref([]);
+const props = defineProps([
+    "id",
+    "telefone",
+    "tipoContato",
+    "privado",
+    "email",
+    "pessoa",
+]);
+const numero = ref(props.telefone);
+const tipoNumero = ref(props.tipoContato);
+const emailInput = ref(props.email);
+const checked = ref(props.privado);
+import { toast } from "vue3-toastify";
 
 function isAuthorized() {
     const router = useRouter();
@@ -24,24 +26,12 @@ function isAuthorized() {
     }
 }
 
-async function listPeople() {
-    let data = {
-        nome: "",
-    };
-    return api.post("/api/pessoa/pesquisar", data);
-}
-
 onMounted(async () => {
     isAuthorized();
-    pessoas.value = (await listPeople()).data;
 });
 
 function clickSend() {
-    if (pessoa.value == "") {
-        toast.error("Selecione uma pessoa!", {
-            autoClose: 2000,
-        });
-    } else if (numero.value == "") {
+    if (numero.value == "") {
         toast.error("Insira um número!", {
             autoClose: 2000,
         });
@@ -53,14 +43,15 @@ function clickSend() {
         });
     } else {
         let data = {
+            id: props.id,
             email: emailInput.value,
-            pessoa: pessoa.value,
+            pessoa: props.pessoa,
             privado: checked.value,
         };
         api.post("/api/contato/salvar", data)
             .then((response: any) => {
                 if (response.status == 200) {
-                    toast.success("Contato cadastrado!", {
+                    toast.success("Contato editado com sucesso!", {
                         autoClose: 2000,
                     });
                     setTimeout(() => router.push("/"), 2000);
@@ -70,7 +61,7 @@ function clickSend() {
                 if (error.response.status == 401) {
                     router.push("/login");
                 } else {
-                    toast.error("Erro no cadastro!", {
+                    toast.error("Erro na edição!", {
                         autoClose: 2000,
                     });
                 }
@@ -80,17 +71,10 @@ function clickSend() {
 </script>
 
 <template>
-    <div class="page-new-contact">
-        <Header></Header>
-
-        <div class="general">
-            <div class="select-container" v-if="pessoas">
-                <label for="pessoa">Selecione a pessoa</label>
-                <select v-model="pessoa">
-                    <option v-for="p in pessoas" :value="p">
-                        {{ p.nome }}
-                    </option>
-                </select>
+    <div class="background">
+        <div class="page-edict-contact">
+            <div class="close">
+                <p @click="$emit('close')">x</p>
             </div>
 
             <div class="grid">
@@ -112,23 +96,23 @@ function clickSend() {
                             <div>
                                 <input
                                     type="radio"
-                                    id="Celular"
-                                    name="Celular"
-                                    value="Celular"
+                                    id="CELULAR"
+                                    name="CELULAR"
+                                    value="CELULAR"
                                     v-model="tipoNumero"
                                 />
-                                <label for="Celular">Celular</label>
+                                <label for="CELULAR">CELULAR</label>
                             </div>
 
                             <div>
                                 <input
                                     type="radio"
-                                    id="Fixo"
-                                    name="Fixo"
-                                    value="Fixo"
+                                    id="TELEFONE"
+                                    name="TELEFONE"
+                                    value="TELEFONE"
                                     v-model="tipoNumero"
                                 />
-                                <label for="Fixo">Fixo</label>
+                                <label for="TELEFONE">TELEFONE</label>
                             </div>
                         </div>
                     </div>
@@ -155,16 +139,14 @@ function clickSend() {
                 type="text"
             />
 
-            <div class="common-button" @click="clickSend">
-                <p>Cadastrar contato</p>
+            <div class="common-button" @click="clickSend()">
+                <p>Salvar contato</p>
             </div>
         </div>
-
-        <Footer></Footer>
     </div>
 </template>
 
 <style lang="scss">
 @import "../scss/app.scss";
-@import "../scss/new-contact.scss";
+@import "../scss/edit-contact.scss";
 </style>

@@ -1,6 +1,10 @@
 .general {
     padding   : 0 10vw 150px;
     text-align: left;
+
+    @media screen and (max-width: 990px) {
+        padding: 0 20px 110px;
+    }
 }
 
 .select-container {
@@ -52,6 +56,10 @@
     grid-template-columns: 1fr 1fr;
     gap                  : 15px;
     margin-bottom        : 15px;
+
+    @media screen and (max-width: 990px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .common-button {
